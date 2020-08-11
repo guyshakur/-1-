@@ -8,35 +8,35 @@ namespace C20_Ex01_01
 {
     class Program
     {
-        private static int m_SizeOfArgs = 4;
-        private static int m_LenghOfNumberBinary = 8;
+        private readonly static int m_SizeOfArgs = 4;
+        private readonly static int m_LenghOfNumberBinary = 8;
 
-        private static void Main()
+
+        static void Main()
         {
-            getFromUser4NumbersBunaryAndReturn4NumberDecimalAndStatistics();
-        }
-        
-        private static void getFromUser4NumbersBunaryAndReturn4NumberDecimalAndStatistics()
-        {              
+            StringBuilder argsBinary;
             StringBuilder argsDecimal = new StringBuilder("");
+
+            int countOfOne;
+            int countOfZero;
             int countOfPow;
 
-            readArrayFromUser(out StringBuilder argsBinary);
+            ReadArrayFromUser(out argsBinary);
 
             for (int i = 0; i < m_SizeOfArgs; i++)
             {
-                argsDecimal.AppendLine(convertToDecimal(int.Parse(argsBinary.ToString(i * m_LenghOfNumberBinary, m_LenghOfNumberBinary))).ToString());
+                argsDecimal.AppendLine(ConvertToDecimal(int.Parse(argsBinary.ToString(i * m_LenghOfNumberBinary, m_LenghOfNumberBinary))).ToString());
             }
 
             Console.WriteLine(argsDecimal.ToString());
 
-            countOfPow = counterZeroAndOne(argsBinary, out int countOfOne, out int countOfZero);
+            countOfPow = CounterZeroAndOne(argsBinary, out countOfOne, out countOfZero);
 
             Console.WriteLine("we have {0} zeros and {1} ones in average", Math.Round((float)countOfZero / m_SizeOfArgs), Math.Round((float)countOfOne / m_SizeOfArgs));
             //for check if i have a number behezka 2 in the number (binary) i have exactly 1 once time and zero 7 times.
             Console.WriteLine("There are {0} numbers that are power of 2", countOfPow);
-            Console.WriteLine("There are {0} numbers which are an ascending series", checkIfAsc(argsDecimal));
-            Console.WriteLine("The general avarege of the inserted numbers is {0}", averageNumber(argsDecimal));
+            Console.WriteLine("There are {0} numbers which are an ascending series", CheckIfAsc(argsDecimal));
+            Console.WriteLine("The general avarege of the inserted numbers is {0}", AvarageNumber(argsDecimal));
 
             Console.WriteLine("Enter to Exit");
             Console.ReadLine();
@@ -44,10 +44,12 @@ namespace C20_Ex01_01
 
         /// <summary>
         /// read binary number from user, and use with methos CheckIfBinary to check if not problm..
-        private static void readArrayFromUser(out StringBuilder o_ReadStringFromUser)
+        /// </summary>
+        private static void ReadArrayFromUser(out StringBuilder o_ReadStringFromUser)
         {
             o_ReadStringFromUser = new StringBuilder("");
             String checkIfRightStr;
+            int checkIfRight;
 
             Console.WriteLine("Please enter {0} numbers binary with 8 digits, to convert to decimal", m_SizeOfArgs);
             for (int counterOfScan = 0; counterOfScan < m_SizeOfArgs;)
@@ -55,11 +57,11 @@ namespace C20_Ex01_01
                 Console.WriteLine("Please enter {0} option from {1} options", counterOfScan + 1, m_SizeOfArgs);
                 checkIfRightStr = Console.ReadLine();
 
-                if (!int.TryParse(checkIfRightStr, out int checkIfRight))
+                if (int.TryParse(checkIfRightStr, out checkIfRight) == false)
                 {
                     Console.WriteLine("You need to press just number without letters\nPlease try again");
                 }
-                else if (!checkIfBinary(checkIfRight))
+                else if (CheckIfBinary(checkIfRight) == false)
                 {
                     Console.WriteLine("You need to press just 0 or 1 numbers\nPlease try again");
                 }
@@ -74,14 +76,16 @@ namespace C20_Ex01_01
                 }
             }
         }
-        
+
+        /// <summary>
         /// check if the number is binary.
-        static bool checkIfBinary(int i_NnumberToCheck)
+        /// </summary>
+        static bool CheckIfBinary(int i_NnumberToCheck)
         {
             int number = i_NnumberToCheck;
             bool flag = true;
 
-            while (number != 0 && flag)
+            while (number != 0 && flag == true)
             {
                 if (!(number % 10 == 0 || number % 10 == 1))
                 {
@@ -93,8 +97,10 @@ namespace C20_Ex01_01
             return flag;
         }
 
+        /// <summary>
         /// this methos convert binary number to decimal number. 
-        private static int convertToDecimal(int i_BinaryNumber)
+        /// </summary>
+        private static int ConvertToDecimal(int i_BinaryNumber)
         {
             int decimalNumber = 0;
             int baseOfNumber = 1;
@@ -111,7 +117,7 @@ namespace C20_Ex01_01
         /// <summary>
         /// this methods check how many zero and one have in Strings, and use methods SumZeroAndOne to check if the number is pow of 2. 
         /// </summary>
-        private static int counterZeroAndOne(StringBuilder i_Args, out int o_One, out int o_Zero)
+        private static int CounterZeroAndOne(StringBuilder i_Args, out int o_One, out int o_Zero)
         {
             o_One = 0;
             o_Zero = 0;
@@ -119,7 +125,7 @@ namespace C20_Ex01_01
 
             for (int size = 0; size < m_SizeOfArgs; size++)
             {
-                if (sumZeroAndOne(int.Parse(i_Args.ToString(size * m_LenghOfNumberBinary, m_LenghOfNumberBinary)), ref o_One, ref o_Zero))
+                if (SumZeroAndOne(int.Parse(i_Args.ToString(size * m_LenghOfNumberBinary, m_LenghOfNumberBinary)), ref o_One, ref o_Zero) == true)
                 // (בודק אם זה אכן חזקה של 2 (אם כן אז אמור להיות 1 פעם אחת ו0 7 פעמים
                 {
                     CounterToPow++;
@@ -132,7 +138,7 @@ namespace C20_Ex01_01
         /// <summary>
         /// check if the number is pow of 2.
         /// </summary>
-        private static bool sumZeroAndOne(int i_Number, ref int io_One, ref int io_Zero)
+        private static bool SumZeroAndOne(int i_Number, ref int io_One, ref int io_Zero)
         {
             int checkIfPow = 0;
             bool flagToReturn = false;
@@ -161,9 +167,10 @@ namespace C20_Ex01_01
             return flagToReturn;
         }
 
-        private static int checkIfAsc(StringBuilder i_Args)
+        private static int CheckIfAsc(StringBuilder i_Args)
         {
             int counterAsc = 0;
+            char[] numberAsc;
             StringBuilder arg = new StringBuilder("");
 
             for (int i = 0; i < i_Args.Length; i++)
@@ -177,8 +184,8 @@ namespace C20_Ex01_01
 
                 if ((arg.Length <= 1))
                 {
-                    flagToCheckDuplicateDigit = false; //the number can be 1-255. if the number is with 1 digit example 2 so the number is 
-                }                                       //002--> and is not number asc.
+                    flagToCheckDuplicateDigit = false;
+                }
 
                 else
                 {
@@ -192,7 +199,7 @@ namespace C20_Ex01_01
                         }
                     }
                 }
-                if (flagToCheckDuplicateDigit)
+                if (flagToCheckDuplicateDigit == true)
                 {
                     counterAsc++;
                 }
@@ -202,7 +209,7 @@ namespace C20_Ex01_01
             return counterAsc;
         }
 
-        private static float averageNumber(StringBuilder i_Args)
+        private static float AvarageNumber(StringBuilder i_Args)
         {
             StringBuilder args = new StringBuilder("");
             int sum = 0;
