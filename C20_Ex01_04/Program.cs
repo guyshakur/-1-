@@ -101,7 +101,7 @@ namespace C20_Ex01_04
         private static bool IsValidInput(String i_string)
         {
 
-            if ((HasEnglishLetters(i_string) == false) && (IsTheTextContainsDigits(i_string) == false)
+            if ((IsTextIsEnglishLettersOrNumbers(i_string) == false) && (IsTheTextContainsDigits(i_string) == false)
                 || (IsTheTextContainsDigits(i_string) == true) && IsTheStringContainsLetters(i_string) == true)
             {
                 return false;
@@ -111,7 +111,8 @@ namespace C20_Ex01_04
             return true;
 
         }
-        private static bool HasEnglishLetters(String i_string)
+        //checking if the given text are having only english letters or numbers
+        private static bool IsTextIsEnglishLettersOrNumbers(String i_string)
         {
 
             bool isTheInputContainsEnglishLetters = Regex.IsMatch(i_string, "^[a-zA-Z0-9]*$");
