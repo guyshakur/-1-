@@ -10,8 +10,6 @@ namespace C20_Ex01_05
     {
         public static void Main()
         {
-
-
             PrintSatistics();
         }
 
