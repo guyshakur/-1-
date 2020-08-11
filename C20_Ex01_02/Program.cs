@@ -12,12 +12,10 @@ namespace C20_Ex01_02
 
         public static void Main()
         {
-
-            //m_SizeOfSandClock = 5;
-            PrintSandClock(m_SizeOfSandClock);
+            printSandClock(m_SizeOfSandClock);
         }
 
-        private static void SandClock(int i_StarSize)
+        private static void sandClock(int i_StarSize)
         {
             int sizeOfStar = m_SizeOfSandClock;
 
@@ -28,25 +26,25 @@ namespace C20_Ex01_02
             }
             if (i_StarSize == 1)
             {
-                PrintStar(i_StarSize, (sizeOfStar - i_StarSize) / 2);
+                printStar(i_StarSize, (sizeOfStar - i_StarSize) / 2);
                 return;
             }
             if (i_StarSize == 2)
             {
-                PrintStar(i_StarSize, (sizeOfStar - i_StarSize) / 2);
+                printStar(i_StarSize, (sizeOfStar - i_StarSize) / 2);
                 Console.WriteLine();
-                PrintStar(i_StarSize, (sizeOfStar - i_StarSize) / 2);
+                printStar(i_StarSize, (sizeOfStar - i_StarSize) / 2);
             }
             else
             {
-                PrintStar(i_StarSize, (sizeOfStar - i_StarSize) / 2);
-                SandClock(i_StarSize - 2);
-                PrintStar(i_StarSize, (sizeOfStar - i_StarSize) / 2);
+                printStar(i_StarSize, (sizeOfStar - i_StarSize) / 2);
+                sandClock(i_StarSize - 2);
+                printStar(i_StarSize, (sizeOfStar - i_StarSize) / 2);
             }
         }
 
 
-        private static void PrintStar(int i_PrintStar, int i_PrintSpace)
+        private static void printStar(int i_PrintStar, int i_PrintSpace)
         {
             for (int i = 0; i < i_PrintSpace; i++)
             {
@@ -64,9 +62,9 @@ namespace C20_Ex01_02
         {
             m_SizeOfSandClock = i_NewSize;
         }
-        public static void PrintSandClock(int i_SizeOfSandClock)
+        public static void printSandClock(int i_SizeOfSandClock)
         {
-            SandClock(i_SizeOfSandClock);
+            sandClock(i_SizeOfSandClock);
         }
 
     }

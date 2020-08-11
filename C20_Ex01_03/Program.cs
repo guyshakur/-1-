@@ -15,20 +15,18 @@ namespace C20_Ex01_03
             printSandWatchFromInputNumberOfStars();
         }
 
-
-
-        public static int ReadNumberFromUser()
+        private static int readNumberFromUser()
         {
             String numberStr;
             int inputParsedFromUser;
             bool isParseFromUser;
             do
             {
-                Console.WriteLine("Enter number for sand clock ,please grater from 1 and not letters");
+                Console.WriteLine("Enter number for sand clock ,please grater from 0 and not letters");
                 numberStr = Console.ReadLine();
                 isParseFromUser = int.TryParse(numberStr, out inputParsedFromUser);
 
-                if ((isParseFromUser == false) || (inputParsedFromUser <= 0))
+                if ((!isParseFromUser) || (inputParsedFromUser <= 0))
                 {
                     Console.WriteLine("invalid input");
 
@@ -43,7 +41,7 @@ namespace C20_Ex01_03
 
         private static void printSandWatchFromInputNumberOfStars()
         {
-            C20_Ex01_02.Program.PrintSandClock(ReadNumberFromUser());
+            C20_Ex01_02.Program.printSandClock(readNumberFromUser());
         }
     }
 }
