@@ -14,7 +14,7 @@ namespace C20_Ex01_02
         {
 
             //m_SizeOfSandClock = 5;
-            SandClock(m_SizeOfSandClock);
+            PrintSandClock(m_SizeOfSandClock);
         }
 
         private static void SandClock(int i_StarSize)
@@ -59,6 +59,7 @@ namespace C20_Ex01_02
             Console.WriteLine();
         }
 
+        //
         public static void SetSizeSandClock(int i_NewSize)
         {
             m_SizeOfSandClock = i_NewSize;

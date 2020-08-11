@@ -86,7 +86,7 @@ namespace C20_Ex01_05
         }
         private static int theSmallestDigit(int i_integer)
         {
-            int minDigit = i_integer % 10;
+          int minDigit = i_integer % 10;
             i_integer /= 10;
             while (i_integer > 0)
             {

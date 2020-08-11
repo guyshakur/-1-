@@ -15,6 +15,8 @@ namespace C20_Ex01_03
             printSandWatchFromInputNumberOfStars();
         }
 
+
+
         public static int ReadNumberFromUser()
         {
             String numberStr;
