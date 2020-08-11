@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace C20_Ex01_03
 
 
@@ -41,7 +42,9 @@ namespace C20_Ex01_03
 
         private static void printSandWatchFromInputNumberOfStars()
         {
-            C20_Ex01_02.Program.printSandClock(readNumberFromUser());
+            int numberFromUser = readNumberFromUser();
+            C20_Ex01_02.Program.SetSizeSandClock(numberFromUser);
+            C20_Ex01_02.Program.PrintSandClock(numberFromUser);
         }
     }
 }

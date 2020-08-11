@@ -12,7 +12,7 @@ namespace C20_Ex01_02
 
         public static void Main()
         {
-            printSandClock(m_SizeOfSandClock);
+            PrintSandClock(m_SizeOfSandClock);
         }
 
         private static void sandClock(int i_StarSize)
@@ -62,7 +62,7 @@ namespace C20_Ex01_02
         {
             m_SizeOfSandClock = i_NewSize;
         }
-        public static void printSandClock(int i_SizeOfSandClock)
+        public static void PrintSandClock(int i_SizeOfSandClock)
         {
             sandClock(i_SizeOfSandClock);
         }
