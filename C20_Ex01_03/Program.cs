@@ -37,8 +37,7 @@ namespace C20_Ex01_03
 
         private static void printSandWatchFromInputNumberOfStars()
         {
-            int numberFromUser = readNumberFromUser();
-            C20_Ex01_02.Program.PrintSandClock(numberFromUser);
+            C20_Ex01_02.Program.PrintSandClock(((readNumberFromUser())/2)*2+1);
         }
     }
 }

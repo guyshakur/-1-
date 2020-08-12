@@ -10,8 +10,6 @@ namespace C20_Ex01_05
     {
         public static void Main()
         {
-
-
             PrintSatistics();
         }
 
@@ -27,12 +25,8 @@ namespace C20_Ex01_05
                 {
                     Console.WriteLine("invalid input");
                 }
-
-
             }
-
             while (isValidInput(inputFromUser) == false);
-
 
             return inputFromUser;
         }
@@ -49,8 +43,6 @@ namespace C20_Ex01_05
         {
             bool isParsed = int.TryParse(i_inputString, out int theParsedInt);
             return theParsedInt;
-
-
         }
 
         private static bool containsOnlyDigits(string i_inputString)
@@ -62,10 +54,10 @@ namespace C20_Ex01_05
                 {
                     return false;
                 }
-
             }
             return true;
         }
+
         private static uint theBiggestDigitFromString(string i_String)
         {
             char charAtIndex = i_String.ElementAt(0);
@@ -76,12 +68,10 @@ namespace C20_Ex01_05
                 charAtIndex = i_String.ElementAt(i);
                 uint tempDigitToCompare = (uint)Char.GetNumericValue(charAtIndex);
                 maxDigit= Math.Max(maxDigit, tempDigitToCompare);
-
             }
-
-
             return maxDigit;
         }
+
         private static uint theSmallestDigitFromString(string i_String)
         {
           char charAtIndex = i_String.ElementAt(0);
@@ -95,13 +85,8 @@ namespace C20_Ex01_05
 
             }
 
-
-            return minDigit;
-
-
-        }
-
-    
+           return minDigit;
+        }  
 
         private static uint numberOfDigitsFromStringDividedWithFour(string i_String)
         {
@@ -120,13 +105,11 @@ namespace C20_Ex01_05
 
             }
 
-
-            return numberOfDividerOfFour;
-
+           return numberOfDividerOfFour;
         }
+
         private static int numberOfDigitBiggestThanUnit(int i_integer)
         {
-
             int unit = i_integer % 10;
             int numOfDigitsBiggerThanUnit = 0;
             int theNextNumberFromInteger = 0;
@@ -142,6 +125,7 @@ namespace C20_Ex01_05
             }
             return numOfDigitsBiggerThanUnit;
         }
+
         public static void PrintSatistics()
         {
             String input = readInputFromUser();
@@ -149,9 +133,6 @@ namespace C20_Ex01_05
 
             String satisticsFormat = String.Format("the biggest digit is {0}.{1}The smallest digit is {2}.{3}there are {4}  numbers that divided by four without a reminder.{5}there are {6} digits that are bigger than unit place digit.", theBiggestDigitFromString(input), Environment.NewLine, theSmallestDigitFromString(input), Environment.NewLine, numberOfDigitsFromStringDividedWithFour(input), Environment.NewLine, numberOfDigitBiggestThanUnit(parseInput));
             Console.WriteLine(satisticsFormat);
-
         }
-
-
     }
 }
