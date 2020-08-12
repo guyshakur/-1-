@@ -66,58 +66,63 @@ namespace C20_Ex01_05
             }
             return true;
         }
-        private static int theBiggestDigit(int i_integer)
+        private static uint theBiggestDigitFromString(string i_String)
         {
-            int maxDigit = i_integer % 10;
-            i_integer /= 10;
-            while (i_integer > 0)
+            char charAtIndex = i_String.ElementAt(0);
+            uint maxDigit = (uint)Char.GetNumericValue(charAtIndex);
+
+            for (int i = 1; i < i_String.Length; i++)
             {
-                if (i_integer % 10 == 9)
-                {
-                    return 9;
-                }
+                charAtIndex = i_String.ElementAt(i);
+                uint tempDigitToCompare = (uint)Char.GetNumericValue(charAtIndex);
+                maxDigit= Math.Max(maxDigit, tempDigitToCompare);
 
-
-                maxDigit = Math.Max(i_integer % 10, maxDigit);
-
-                i_integer /= 10;
             }
+
+
             return maxDigit;
         }
-        private static int theSmallestDigit(int i_integer)
+        private static uint theSmallestDigitFromString(string i_String)
         {
-          int minDigit = i_integer % 10;
-            i_integer /= 10;
-            while (i_integer > 0)
+          char charAtIndex = i_String.ElementAt(0);
+          uint minDigit = (uint) Char.GetNumericValue(charAtIndex);
+          
+            for(int i=1;i<i_String.Length;i++)
             {
-                if (i_integer % 10 == 0)
-                {
-                    return 0;
-                }
+                uint tempDigitToCompare = (uint) Char.GetNumericValue(charAtIndex);
+                charAtIndex = i_String.ElementAt(i);
+                minDigit= Math.Min(minDigit, tempDigitToCompare);
 
-                minDigit = Math.Min(i_integer % 10, minDigit);
-
-                i_integer /= 10;
             }
+
+
             return minDigit;
+
 
         }
 
-        private static int numOfDigitsDividedByForWithoutReminder(int i_integer)
+    
+
+        private static uint numberOfDigitsFromStringDividedWithFour(string i_String)
         {
+            char charAtIndex = i_String.ElementAt(0);
+            uint digitToCheck = (uint)Char.GetNumericValue(charAtIndex);
+            uint numberOfDividerOfFour = 0;
 
-            int numOfDividerOfFour = 0;
-
-            while (i_integer > 0)
+            for (int i = 0; i < i_String.Length; i++)
             {
-                int nextDigit = i_integer % 10;
-                i_integer /= 10;
-                if (nextDigit % 4 == 0)
+                charAtIndex = i_String.ElementAt(i);
+                digitToCheck = (uint)Char.GetNumericValue(charAtIndex);
+                if (digitToCheck % 4 == 0)
                 {
-                    numOfDividerOfFour++;
+                    numberOfDividerOfFour++;
                 }
+
             }
-            return numOfDividerOfFour;
+
+
+            return numberOfDividerOfFour;
+
         }
         private static int numberOfDigitBiggestThanUnit(int i_integer)
         {
@@ -142,7 +147,7 @@ namespace C20_Ex01_05
             String input = ReadInputFromUser();
             bool parsed = int.TryParse(input, out int parseInput);
 
-            String satisticsFormat = String.Format("the biggest digit is {0}.{1}The smallest digit is {2}.{3}there are {4}  numbers that divided by four without a reminder.{5}there are {6} digits that are bigger than unit place digit.", theBiggestDigit(parseInput), Environment.NewLine, theSmallestDigit(parseInput), Environment.NewLine, numOfDigitsDividedByForWithoutReminder(parseInput), Environment.NewLine, numberOfDigitBiggestThanUnit(parseInput));
+            String satisticsFormat = String.Format("the biggest digit is {0}.{1}The smallest digit is {2}.{3}there are {4}  numbers that divided by four without a reminder.{5}there are {6} digits that are bigger than unit place digit.", theBiggestDigitFromString(input), Environment.NewLine, theSmallestDigitFromString(input), Environment.NewLine, numberOfDigitsFromStringDividedWithFour(input), Environment.NewLine, numberOfDigitBiggestThanUnit(parseInput));
             Console.WriteLine(satisticsFormat);
 
         }
