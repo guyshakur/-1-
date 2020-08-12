@@ -4,9 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace C20_Ex01_03
-
 
 {
     class Program
@@ -30,12 +28,9 @@ namespace C20_Ex01_03
                 if ((!isParseFromUser) || (inputParsedFromUser <= 0))
                 {
                     Console.WriteLine("invalid input");
-
                 }
-
             }
             while ((isParseFromUser == false) || (inputParsedFromUser <= 0));
-
 
             return inputParsedFromUser;
         }
@@ -43,7 +38,6 @@ namespace C20_Ex01_03
         private static void printSandWatchFromInputNumberOfStars()
         {
             int numberFromUser = readNumberFromUser();
-            C20_Ex01_02.Program.SetSizeSandClock(numberFromUser);
             C20_Ex01_02.Program.PrintSandClock(numberFromUser);
         }
     }

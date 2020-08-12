@@ -58,12 +58,13 @@ namespace C20_Ex01_02
         }
 
         //
-        public static void SetSizeSandClock(int i_NewSize)
+        private static void setSizeSandClock(int i_NewSize)
         {
             m_SizeOfSandClock = i_NewSize;
         }
         public static void PrintSandClock(int i_SizeOfSandClock)
         {
+            setSizeSandClock(i_SizeOfSandClock);
             sandClock(i_SizeOfSandClock);
         }
 
