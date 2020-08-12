@@ -37,7 +37,15 @@ namespace C20_Ex01_03
 
         private static void printSandWatchFromInputNumberOfStars()
         {
-            C20_Ex01_02.Program.PrintSandClock(((readNumberFromUser())/2)*2+1);
+            int numberFromUser = readNumberFromUser();
+            numberFromUser = (numberFromUser / 2) * 2; ///if the number i get is even the number not change
+                                                        /// if the number is odd i change the number to the number - 1 --> even and smaller from what i get in 1. 
+            C20_Ex01_02.Program.PrintSandClock(numberFromUser + 1); /// i add to the number 1 to change the number to odd.
+        /**
+         * for example if i get from user the number 5. i divide with 2 and get 2 and multiple with 2 and i get 4. and when i send to the methods PrintSandClock 
+         * i send 5. but if i get from user 6, i divide with 2 and get 3 and multiple with 2 and get 6. and when i send to the methods i send 7.
+         * anywhy i send number odd.
+         */
         }
     }
 }
