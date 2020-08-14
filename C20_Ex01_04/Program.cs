@@ -151,7 +151,6 @@ namespace C20_Ex01_04
 			}
 			return sumOfDigits % 3 == 0;
 		}
-
 		public static void PrintTheSatistics()
 		{
 			string inputString = ReadStringFromUser();

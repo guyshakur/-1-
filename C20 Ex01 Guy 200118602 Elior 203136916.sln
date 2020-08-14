@@ -13,6 +13,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C20_Ex01_04", "C20_Ex01_04\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C20_Ex01_05", "C20_Ex01_05\C20_Ex01_05.csproj", "{236C03BD-69EB-4CB0-8DDA-72CE71456F98}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8B3FE625-E445-486C-A311-E37EB0EC45D1}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\Desktop\Ex01_ScreenShots.docx = ..\..\..\..\Desktop\Ex01_ScreenShots.docx
+		..\..\..\..\Desktop\Exercise Checking Report.txt = ..\..\..\..\Desktop\Exercise Checking Report.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
