@@ -131,7 +131,8 @@ namespace C20_Ex01_05
             String input = readInputFromUser();
             bool parsed = int.TryParse(input, out int parseInput);
 
-            String satisticsFormat = String.Format("the biggest digit is {0}.{1}The smallest digit is {2}.{3}there are {4}  numbers that divided by four without a reminder.{5}there are {6} digits that are bigger than unit place digit.", theBiggestDigitFromString(input), Environment.NewLine, theSmallestDigitFromString(input), Environment.NewLine, numberOfDigitsFromStringDividedWithFour(input), Environment.NewLine, numberOfDigitBiggestThanUnit(parseInput));
+            String satisticsFormat = String.Format("the biggest digit is {0}.{1}The smallest digit is {2}.{1}there are {3}  numbers that divided by four without a reminder.{1}there are {4} digits that are bigger than unit place digit."
+                , theBiggestDigitFromString(input), Environment.NewLine, theSmallestDigitFromString(input), numberOfDigitsFromStringDividedWithFour(input), numberOfDigitBiggestThanUnit(parseInput));
             Console.WriteLine(satisticsFormat);
         }
     }
