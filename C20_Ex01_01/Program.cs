@@ -14,9 +14,9 @@ namespace C20_Ex01_01
 
         public static void Main()
         {
-            getFromUserFourNumberBinaryandPrintAfterConvertToDecimalPlusStatistics();
+            getFromUserFourNumberBinaryAndPrintAfterConvertToDecimalPlusStatistics();
         }
-        private static void getFromUserFourNumberBinaryandPrintAfterConvertToDecimalPlusStatistics()
+        private static void getFromUserFourNumberBinaryAndPrintAfterConvertToDecimalPlusStatistics()
         { 
             StringBuilder argsDecimal = new StringBuilder("");
             int countOfPow;

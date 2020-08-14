@@ -15,36 +15,35 @@ namespace C20_Ex01_02
 			PrintSandClock(m_SizeOfSandClock);
 		}
 
-		private static void sandClock(int i_StarSize)
+		private static void sandClock(StringBuilder i_StringWithStar, int i_StarSize)
 		{
 			int sizeOfStar = m_SizeOfSandClock;
-
-		   
+					   
 			if (i_StarSize == 1)
 			{
-				printStar(i_StarSize, (sizeOfStar - i_StarSize) / 2);
+				createStringWithStars(i_StringWithStar,i_StarSize, (sizeOfStar - i_StarSize) / 2);
 			}
 			
 			else
 			{
-				printStar(i_StarSize, (sizeOfStar - i_StarSize) / 2);
-				sandClock(i_StarSize - 2);
-				printStar(i_StarSize, (sizeOfStar - i_StarSize) / 2);
+				createStringWithStars(i_StringWithStar,i_StarSize, (sizeOfStar - i_StarSize) / 2);
+				sandClock(i_StringWithStar,i_StarSize - 2);
+				createStringWithStars(i_StringWithStar,i_StarSize, (sizeOfStar - i_StarSize) / 2);
 			}
 		}
 
 
-		private static void printStar(int i_PrintStar, int i_PrintSpace)
+		private static void createStringWithStars(StringBuilder i_StringStar, int i_createStringWithStars, int i_PrintSpace)
 		{
 			for (int i = 0; i < i_PrintSpace; i++)
 			{
-				Console.Write(" ");
+				i_StringStar.Append(" "); //Console.Write(" ");
 			}
-			for (int i = 0; i < i_PrintStar; i++)
+			for (int i = 0; i < i_createStringWithStars; i++)
 			{
-				Console.Write("*");
+				i_StringStar.Append("*"); //Console.Write("*");
 			}
-			Console.WriteLine();
+			i_StringStar.AppendLine("");//Console.WriteLine();
 		}
 
 		
@@ -54,8 +53,10 @@ namespace C20_Ex01_02
 		}
 		public static void PrintSandClock(int i_SizeOfSandClock)
 		{
+			StringBuilder StringStar = new StringBuilder("");
 			setSizeSandClock(i_SizeOfSandClock);
-			sandClock(i_SizeOfSandClock);
+			sandClock(StringStar,i_SizeOfSandClock);
+			Console.Write(StringStar);
 		}
 
 	}
