@@ -10,7 +10,7 @@ namespace C20_Ex01_05
     {
         public static void Main()
         {
-            PrintSatistics();
+            printSatistics();
         }
 
         private static String readInputFromUser()
@@ -126,12 +126,13 @@ namespace C20_Ex01_05
             return numOfDigitsBiggerThanUnit;
         }
 
-        public static void PrintSatistics()
+        private static void printSatistics()
         {
             String input = readInputFromUser();
             bool parsed = int.TryParse(input, out int parseInput);
 
-            String satisticsFormat = String.Format("the biggest digit is {0}.{1}The smallest digit is {2}.{1}there are {3}  numbers that divided by four without a reminder.{1}there are {4} digits that are bigger than unit place digit."
+            String satisticsFormat = String.Format("the biggest digit is {0}.{1}The smallest digit is {2}.{1}there are {3} " +
+                " numbers that divided by four without a reminder.{1}there are {4} digits that are bigger than unit place digit."
                 , theBiggestDigitFromString(input), Environment.NewLine, theSmallestDigitFromString(input), numberOfDigitsFromStringDividedWithFour(input), numberOfDigitBiggestThanUnit(parseInput));
             Console.WriteLine(satisticsFormat);
         }
