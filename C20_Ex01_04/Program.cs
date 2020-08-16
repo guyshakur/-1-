@@ -38,18 +38,14 @@ namespace C20_Ex01_04
 			{
 				char charFromString = i_String.ElementAt(i);
 
-				if (Char.IsLetter(charFromString))// (charFromString>='A' && charFromString<='Z') || (charFromString>='a' && charFromString<='z')
+				if (Char.IsLetter(charFromString))
 				{
 					return true;
 				}
 
 			}
 			return false;
-			/*
-			 * return (charFromString>='A' && charFromString<='Z') || (charFromString>='a' && charFromString<='z') 
-			 * *********************************עדיף מכל מה שיש למעלה
-			 ********************אבל אם רוצים שיהיה יותר ברור אז פשוט להשאיר את מה שיש למעלה
-			 **/
+			
 		}
 		private static bool isTheTextContainsDigits(string i_String)
 		{
@@ -144,13 +140,11 @@ namespace C20_Ex01_04
 
 		private static bool isTheNumberFromTheStringDividedByThree(string i_String)
 		{
-			//int digit = parsingCharToInt(i_String.ElementAt(0));
-			//int sumOfDigits = i_String.ElementAt(0);
+			
 			int sumOfDigits = 0;
 			for (int i = 0/*1*/; i < i_String.Length; i++)
 			{
-				//digit = parsingCharToInt(i_String.ElementAt(i));
-				//sumOfDigits += digit;
+				
 				sumOfDigits += parsingCharToInt(i_String.ElementAt(i));
 			}
 			return sumOfDigits % 3 == 0;
