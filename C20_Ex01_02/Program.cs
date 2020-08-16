@@ -8,54 +8,47 @@ namespace C20_Ex01_02
 {
 	public class Program
 	{
-		private static int m_SizeOfSandClock = 5;
-
 		public static void Main()
 		{
-			PrintSandClock(m_SizeOfSandClock);
+			int sizeOfSandClock = 5;
+			PrintSandClock(sizeOfSandClock);
 		}
 
-		private static void sandClock(int i_StarSize)
+		private static void sandClock(StringBuilder i_StringWithStar, int i_StarSize,int i_TotalSize)
 		{
-			int sizeOfStar = m_SizeOfSandClock;
-
-		   
 			if (i_StarSize == 1)
 			{
-				printStar(i_StarSize, (sizeOfStar - i_StarSize) / 2);
+				createStringWithStars(i_StringWithStar,i_StarSize, (i_TotalSize - i_StarSize) / 2);
 			}
-			
 			else
 			{
-				printStar(i_StarSize, (sizeOfStar - i_StarSize) / 2);
-				sandClock(i_StarSize - 2);
-				printStar(i_StarSize, (sizeOfStar - i_StarSize) / 2);
+				createStringWithStars(i_StringWithStar,i_StarSize, (i_TotalSize - i_StarSize) / 2);
+				sandClock(i_StringWithStar,i_StarSize - 2, i_TotalSize);
+				createStringWithStars(i_StringWithStar,i_StarSize, (i_TotalSize - i_StarSize) / 2);
 			}
 		}
 
-
-		private static void printStar(int i_PrintStar, int i_PrintSpace)
+		private static void createStringWithStars(StringBuilder i_StringStar, int i_createStringWithStars, int i_PrintSpace)
 		{
+			//add space to the string
 			for (int i = 0; i < i_PrintSpace; i++)
 			{
-				Console.Write(" ");
+				i_StringStar.Append(" ");
 			}
-			for (int i = 0; i < i_PrintStar; i++)
+			//add star to the string
+			for (int i = 0; i < i_createStringWithStars; i++)
 			{
-				Console.Write("*");
+				i_StringStar.Append("*");
 			}
-			Console.WriteLine();
+			//in end line we add new line to stringBuilder
+			i_StringStar.AppendLine("");
 		}
-
 		
-		private static void setSizeSandClock(int i_NewSize)
-		{
-			m_SizeOfSandClock = i_NewSize;
-		}
 		public static void PrintSandClock(int i_SizeOfSandClock)
 		{
-			setSizeSandClock(i_SizeOfSandClock);
-			sandClock(i_SizeOfSandClock);
+			StringBuilder StringStar = new StringBuilder("");
+			sandClock(StringStar,i_SizeOfSandClock,i_SizeOfSandClock);
+			Console.Write(StringStar);
 		}
 
 	}
