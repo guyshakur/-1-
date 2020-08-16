@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,10 +31,10 @@ namespace C20_Ex01_01
 			countOfPow = counterZeroAndOne(argsBinary, out int countOfOne, out int countOfZero);
 
 			Console.WriteLine(argsDecimal.ToString());
-			Console.WriteLine("we have {0} zeros and {1} ones in average", Math.Round((float)countOfZero / m_SizeOfArgs), Math.Round((float)countOfOne / m_SizeOfArgs));
+			Console.WriteLine("There are {0} zeroes and {1} ones on average in the input binary numbers ", Math.Round((float)countOfZero / m_SizeOfArgs), Math.Round((float)countOfOne / m_SizeOfArgs));
 			Console.WriteLine("There are {0} numbers that are power of 2", countOfPow);
-			Console.WriteLine("There are {0} numbers which are an ascending series", checkIfAsc(argsDecimal));
-			Console.WriteLine("The general average of the inserted numbers is {0}", averageNumber(argsDecimal));
+			Console.WriteLine("There are {0} numbers in  ascending order", checkIfAsc(argsDecimal));
+			Console.WriteLine("The  average of all the input numbers in decimal representation is {0}", averageNumber(argsDecimal));
 
 		}
 
