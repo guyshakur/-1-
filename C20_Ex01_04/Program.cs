@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +14,7 @@ namespace C20_Ex01_04
 			getFromUserLetterAndDigitAndTheIfPolindromAndMoreStatistics();
 		}
 
+		
 		private static string readStringFromUser()
 		{
 			string inputFromUser;
@@ -77,26 +78,38 @@ namespace C20_Ex01_04
 				return isPalindrome(i_String.Substring(1, i_String.Length - 2));
 			}
 		}
-
+        //ss
 		private static bool isValidInput(string i_String)
 		{
-			if (((i_String.Length != 12) || (!isTextIsEnglishLettersOrNumbers(i_String)) && (!isTheTextContainsDigits(i_String)))
-				|| ((isTheTextContainsDigits(i_String)) && (isTheStringContainsLetters(i_String))))
+			if ((isContainsSymbol(i_String) == true) || (i_String.Length != 12) || (!isTextIsEnglishLettersOrNumbers(i_String))
+				|| ((isTheTextContainsDigits(i_String)==true) && ((isTheStringContainsLetters(i_String)==true))))
 			{
 				return false;
 			}
 
 			return true;
 		}
+        private static bool isContainsSymbol(string i_String)
+        {
+            for (int i = 0; i < i_String.Length; i++)
+            {
+                char charAtIndexFromString = i_String.ElementAt(i);
+                if (Char.IsSymbol(charAtIndexFromString) == true)
+                {
+                    return true;
+                }
 
-		//checking if the given text are having only english letters or numbers
+            }
+            return false;
+        }
+		//checking if the given text are having only english letters or number
 		private static bool isTextIsEnglishLettersOrNumbers(string i_String)
 		{
 
 			for (int i = 0; i < i_String.Length; i++)
 			{
 				char charAtIndexFromString = i_String.ElementAt(i);
-
+                       
 				if (!((charAtIndexFromString >= 'A' && charAtIndexFromString <= 'Z') || (charAtIndexFromString >= 'a' 
 					&& charAtIndexFromString <= 'z') || Char.IsNumber(charAtIndexFromString)))
 				{
@@ -123,7 +136,7 @@ namespace C20_Ex01_04
 
 		private static bool isTheStringIsAlphaBet(string i_String)
 		{
-			return (isTheStringContainsLetters(i_String) && (!isTheTextContainsDigits(i_String)));
+			return (isTheStringContainsLetters(i_String) && (isTheTextContainsDigits(i_String)==false));
 		}
 		private static bool isTheStringIsNumber(string i_String)
 		{
@@ -142,23 +155,20 @@ namespace C20_Ex01_04
 		{
 			
 			int sumOfDigits = 0;
-			for (int i = 0/*1*/; i < i_String.Length; i++)
+			for (int i = 0; i < i_String.Length; i++)
 			{
 				
 				sumOfDigits += parsingCharToInt(i_String.ElementAt(i));
 			}
 			return sumOfDigits % 3 == 0;
 		}
+	
 
-		public static void PrintTheSatistics()
+		private static void getFromUserLetterAndDigitAndTheIfPolindromAndMoreStatistics()
 		{
-			string inputString = ReadStringFromUser();
-			string isPalindrome = "yes";
-			if (IsPalindrome(inputString) == true)
-			{
-				isPalindrome = "is a Palindrome";
-			}
-			else
+			string inputString = readStringFromUser();
+			string isPalindrom = "";
+			if (!isPalindrome(inputString))
 			{
 				isPalindrom = "not ";
 			}
@@ -179,7 +189,7 @@ namespace C20_Ex01_04
 			{
 				int numOfLower = numberOfTheLowerCassesLetters(inputString);
 				string strFormatToCheckIfNumberDivideByThree = 
-					String.Format("the number of lowercases letters in the string is:{0}", numOfLower);
+				    String.Format("the number of lowercases letters in the string is:{0}", numOfLower);
 				Console.WriteLine(strFormatToCheckIfNumberDivideByThree);
 
 			}
